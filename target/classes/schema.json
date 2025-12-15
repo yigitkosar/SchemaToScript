@@ -1,0 +1,134 @@
+[
+    {
+        "tableName": "student",
+        "columns": [
+            {
+                "name": "student_id",
+                "type": "INT"
+            },
+            {
+                "name": "first_name",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "last_name",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "email",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "enrollment_date",
+                "type": "DATE"
+            }
+        ],
+        "relationships": [
+            {
+                "relationshipType": "many-to-many",
+                "relatedTable": "course",
+                "throughTable": "enrollment",
+                "foreignKey": "student_id",
+                "relatedForeignKey": "course_id"
+            }
+        ]
+    },
+    {
+        "tableName": "instructor",
+        "columns": [
+            {
+                "name": "instructor_id",
+                "type": "INT"
+            },
+            {
+                "name": "first_name",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "last_name",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "email",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "hire_date",
+                "type": "DATE"
+            }
+        ],
+        "relationships": [
+            {
+                "relationshipType": "one-to-many",
+                "relatedTable": "course",
+                "foreignKey": "instructor_id",
+                "relatedForeignKey": "instructor_id"
+            }
+        ]
+    },
+    {
+        "tableName": "course",
+        "columns": [
+            {
+                "name": "course_id",
+                "type": "INT"
+            },
+            {
+                "name": "course_name",
+                "type": "VARCHAR(100)"
+            },
+            {
+                "name": "credits",
+                "type": "INT"
+            },
+            {
+                "name": "instructor_id",
+                "type": "INT"
+            }
+        ],
+        "relationships": [
+            {
+                "relationshipType": "many-to-many",
+                "relatedTable": "student",
+                "throughTable": "enrollment",
+                "foreignKey": "course_id",
+                "relatedForeignKey": "student_id"
+            },
+            {
+                "relationshipType": "many-to-one",
+                "relatedTable": "instructor",
+                "foreignKey": "instructor_id",
+                "relatedForeignKey": "instructor_id"
+            }
+        ]
+    },
+    {
+        "tableName": "enrollment",
+        "columns": [
+            {
+                "name": "student_id",
+                "type": "INT"
+            },
+            {
+                "name": "course_id",
+                "type": "INT"
+            },
+            {
+                "name": "enrollment_date",
+                "type": "DATE"
+            }
+        ],
+        "relationships": [
+            {
+                "relationshipType": "many-to-one",
+                "relatedTable": "student",
+                "foreignKey": "student_id"
+            },
+            {
+                "relationshipType": "many-to-one",
+                "relatedTable": "course",
+                "foreignKey": "course_id"
+            }
+        ]
+    }
+]

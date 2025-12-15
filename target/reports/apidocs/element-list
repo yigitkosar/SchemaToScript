@@ -1,0 +1,8 @@
+edu.rit.g2
+edu.rit.g2.controller
+edu.rit.g2.factory
+edu.rit.g2.generator
+edu.rit.g2.model
+edu.rit.g2.parser
+edu.rit.g2.ui
+edu.rit.g2.view
