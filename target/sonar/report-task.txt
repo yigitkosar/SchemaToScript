@@ -1,0 +1,6 @@
+projectKey=rit-croatia_iste-422_schema2script800g2_f136af41-1735-489c-a70c-6c03b8fbb585
+serverUrl=https://cqjuqh3gc67a.share.zrok.io
+serverVersion=25.10.0.114319
+dashboardUrl=https://cqjuqh3gc67a.share.zrok.io/dashboard?id=rit-croatia_iste-422_schema2script800g2_f136af41-1735-489c-a70c-6c03b8fbb585
+ceTaskId=7da5e428-53c6-4243-be55-72dd1f54de23
+ceTaskUrl=https://cqjuqh3gc67a.share.zrok.io/api/ce/task?id=7da5e428-53c6-4243-be55-72dd1f54de23
