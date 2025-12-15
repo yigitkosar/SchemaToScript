@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="filename">target/logs/Schema2Script.log</Property>
+    </Properties> 
+    
+    <Appenders>
+        <Console name="STDOUT">
+            <PatternLayout pattern="%-5p %c %m%n"/>
+        </Console>
+        <RollingFile name="FILE"
+                     fileName="${filename}"
+                     filePattern="target/logs/Schema2Script-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5p %c{1}:%L - %m%xThrowable{separator(|)}%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="10 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="14"/>
+        </RollingFile>
+    </Appenders>
+ 
+    <Loggers>
+        <Logger name="edu.rit.g2.S2SLogger" level="info">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="STDOUT"/>
+        </Logger>      
+        <Logger name="edu.rit.g2" level="info" additivity="false">
+            <AppenderRef ref="FILE"/>
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="fatal">
+            <AppenderRef ref="STDOUT"/>            
+        </Root>
+       
+    </Loggers>
+</Configuration>
